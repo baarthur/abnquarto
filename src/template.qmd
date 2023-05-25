@@ -1,0 +1,96 @@
+---
+title: "Template para Quarto em ABNT"
+date: today # ou especifique uma data
+author: "Seu nome"
+
+# vai herdar as configurações globais
+format: pdf
+
+# misc
+lang: pt-BR # siga o padrão: pt-BR, es-AR, en-US etc.
+editor: source # alterne para editor: visual se preferir
+---
+
+```{r}
+#| label: setup
+
+library(kableExtra)
+library(knitr)
+library(tidyverse)
+```
+
+\newpage
+
+# Introdução {#sec-intro}
+
+Esse arquivo contém as informações para começar básicas. Leia mais aqui:
+
+* [Guias do Quarto](https://quarto.org/docs/guide/)
+* [Opções para o formato html](https://quarto.org/docs/reference/formats/html.html)
+* [Opções para o formato pdf](https://quarto.org/docs/reference/formats/pdf.html)
+* [GitHub + R](https://happygitwithr.com/index.html)
+* [Criando sites com Quarto](https://ucsb-meds.github.io/creating-quarto-websites/)
+* [Tabelas para pdf usando kableExtra](http://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf)
+
+Defina os títulos e subtítulos como quiser, seguindo a estrutura `#, ##, ...`. Pule uma linha antes e após os `#`s para evitar problemas.
+
+Você pode numerar seções, equações, figuras e o que quiser seguindo a fórmula dos labels como os exemplos desse arquivo: `{#sec-intro}`, `{#eq-did}`, `{#fig-brazil}`. Para deixar uma seção sem número, use `{.unnumbered}`, como a seção final deste arquivo.
+
+Se quiser quebrar uma página (em `pdf`), basta dar o comando \LaTeX{} `\newpage`.
+
+# Exemplos {#sec-dummies}
+
+## Equações {#sec-math}
+Para equações em linha, digite ente cifrões uma equação em \LaTeX{}. Uma Cobb-Douglas: digite `$u(x_1,x_2) = x_1^\alpha \cdot x_2^{1 - \alpha}$` e obterá $u(x_1,x_2) = x_1^\alpha \cdot x_2^{1 - \alpha}$.
+
+Para centralizar opções tem mais algumas opções, mas deve ser entre dois cifrões de cada lado e quebrando em linhas.
+
+Exemplo: equação do modelo Insumo-Produto com regiões. Digite 
+```
+$$
+\begin{bmatrix} x_1^1 \\ x_2^1 \\ \vdots \\ x_s^r \end{bmatrix} = 
+\begin{bmatrix} 
+  z_{11}^{11} & z_{12}^{11} & \cdots & z_{1s}^{1r} \\ 
+  z_{21}^{11} & z_{22}^{11} & \cdots & z_{2s}^{1r} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  z_{s1}^{1r} & z_{s2}^{1r} & \cdots & z_{ss}^{rr}
+\end{bmatrix} +
+\begin{bmatrix} 
+  f_{1}^{1,C} & f_{1}^{1,G} & f_{1}^{1,GFCF} & f_{1}^{1,\Delta S} & f_{1}^{1,EXP} \\ 
+  f_{2}^{1,C} & f_{2}^{1,G} & f_{2}^{1,GFCF} & f_{2}^{1,\Delta S} & f_{2}^{1,EXP} \\
+  \vdots & \vdots & \vdots & \vdots & \vdots \\
+  f_{s}^{r,C} & f_{s}^{r,G} & f_{s}^{r,GFCF} & f_{s}^{r,\Delta S} & f_{s}^{r,EXP} 
+\end{bmatrix}.
+$$ {#eq-iioas}
+```
+e o resultado será 
+$$
+\begin{bmatrix} x_1^1 \\ x_2^1 \\ \vdots \\ x_s^r \end{bmatrix} = 
+\begin{bmatrix} 
+  z_{11}^{11} & z_{12}^{11} & \cdots & z_{1s}^{1r} \\ 
+  z_{21}^{11} & z_{22}^{11} & \cdots & z_{2s}^{1r} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  z_{s1}^{1r} & z_{s2}^{1r} & \cdots & z_{ss}^{rr}
+\end{bmatrix} +
+\begin{bmatrix} 
+  f_{1}^{1,C} & f_{1}^{1,G} & f_{1}^{1,GFCF} & f_{1}^{1,\Delta S} & f_{1}^{1,EXP} \\ 
+  f_{2}^{1,C} & f_{2}^{1,G} & f_{2}^{1,GFCF} & f_{2}^{1,\Delta S} & f_{2}^{1,EXP} \\
+  \vdots & \vdots & \vdots & \vdots & \vdots \\
+  f_{s}^{r,C} & f_{s}^{r,G} & f_{s}^{r,GFCF} & f_{s}^{r,\Delta S} & f_{s}^{r,EXP} 
+\end{bmatrix}.
+$$ {#eq-iioas}
+digite o texto normalmente nas linhas acima e abaixo da equação. Referencie as equações de modo direto ---`@eq-iioas` vira @eq-iioas--- ou indireta, `[-@eq-iioas]` para obter [-@eq-iioas].
+
+
+## Citações {#sec-cite} 
+
+Se você tem um arquivo com a sua bibliografia (`.bib`, `.json` ou outro), basta chamar aqui as citation keys. Citação direta é `@sua_chave`, citação indireta é `[@sua chave]` e você pode colocar mais de uma fonte (`[@chave_1, @chave2]`), especificar páginas (`@chave_1[p. 394]`) etc: veja mais [aqui](https://quarto.org/docs/authoring/cross-references.html) sobre citações e outros tipos de referência cruzada. 
+
+Exemplo de parágrafo usando as citações ---note que, em `_quarto.yml`, estão definidos o formato para citação e a bibliografia:
+
+> O R é um dos ambientes mais completos para análise estatística e econométrica [@colonescu]. Entre os diversos pacotes, podemos citar @wickham2019 para tratamento de dados (o famoso Tidyverse) e @pebesma2018 para GIS.
+
+
+# Referências {.unnumbered}
+
+Se você tiver digitado referências, elas aparecerão automaticamente após a última coisa que você digitou.

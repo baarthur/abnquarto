@@ -1,53 +1,35 @@
-# Article Format Template (AFT)
+# abnquarto v0.1.0 (alpha)
 
-<!-- REMOVE THIS IN YOUR FORMAT TEMPLATE -->
-> Template for creating a new journal article format for Quarto. 
->
-> This repository is a [Github Repository Template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) that you should use as a starter to create a new extension format. Click on the "Use this template" button at the top !
->
-> See information about how-to use this repo template inside the template file or its rendered version at <https://quarto-journals.github.io/article-format-template/>
+Template para escrever em Quarto seguindo o mínimo de regras ABNT.
 
-<!-- ALL THE BELOW SHOULD BE IN YOUR README -->
+> Criado por Arthur Bazolli com base [neste reposiotório](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) e nas [orientações LaTeX da UFJF](https://www2.ufjf.br/biblioteca/servicos/).
 
-This is a Quarto template that assists you in creating a manuscript for Article Format Template journals. You can learn more about ...
+No futuro: criar um arquivo que reproduza 100% o padrão para monografias, dissertações e teses.
+...
 
-## Creating a New Article
 
-You can use this as a template to create an article for an AFT journal. To do this, use the following command:
 
+## Como baixar esse template
+
+### Alternativa 1
+Baixar tudo e inserir manualmente no seu computador: `<> Code` > `Download ZIP`
+
+### Alternativa 2
+Basta clonar este repositório, copiando o link acima.
+
+Pelo `Terminal` (do RStudio ou do seu computador):
 ```bash
-quarto use template quarto-journals/article-format-template
+git clone https://github.com/baarthur/abnquarto.git nome_da_pasta
 ```
 
-This will install the extension and create an example qmd file and bibiography that you can use as a starting place for your article.
+> Dica: 
+> Garanta que você está na pasta certa usando o comando `pwd` (print work directory); caso contrário, digite cd e o caminho da pasta onde vai ficar o projeto.
 
-## Installation For Existing Document
+Isso vai criar uma pasta no diretório que você excolheu com os arquivos necessários. Os mais importantes são `_quarto.yml` (definições globais de margens, recuos, bibliografia etc) e tudo na pasta `src`, onde há um template e os arquivos necessários na subpasta `yaml`.
 
-You may also use this format with an existing Quarto project or document. From the quarto project or document directory, run the following command to install this format:
 
-```bash
-quarto install extension quarto-journals/article-format-template
-```
 
-## Usage
+## Uso básico
 
-To use the format, you can use the format names `aft-pdf` and `aft-html`. For example:
-
-```bash
-quarto render article.qmd --to aft-pdf
-```
-
-or in your document yaml
-
-```yaml
-format:
-  pdf: default
-  aft-pdf:
-    keep-tex: true    
-```
-
-You can view a preview of the rendered template at <https://quarto-journals.github.io/article-format-template/>.
-
-## Format Options
-
-This format does not have specific format option. Include documentation of such option otherwise. See <https://github.com/quarto-journals/elsevier#format-options> for an example.
+1. Edite o arquivo `_quarto.yml` seguindo as instruções que estão lá.
+2. Use o template em `src` (ou crie um arquivo do zero onde quiser).

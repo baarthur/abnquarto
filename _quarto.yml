@@ -1,0 +1,78 @@
+#---- Instruções: 
+## edite os campos necessários e deixe os outros como estão.
+## dica: comente as linhas (# na frente), assim você pode ir testando e vendo o que quer manter.
+## estas configurações são globais, para todos os arquivos .qmd do projeto.
+## todas elas também podem ser feitas no YAML de cada documento. 
+### nesse caso, substituem a informação deste arquivo naquele documento.
+
+#--- Comentário sobre caminhos relativos:
+## todos os arquivos, como os da bibliografia, são diretórios relativos ao seu projeto. Não passe caminhos inteiros.
+## exemplo: se suas referências estão em c://usuarios/eu/projetos/meu_projeto/src/yaml, 
+### digite apenas a partir do projeto: src/yaml/arquivo.extensao, ou ainda ../src/yaml/arquivo.extensao
+
+project:
+  title: "Digite aqui o título do seu projeto"
+  output-dir: output # os arquivos serão compilados aqui. Ex.: o arquivo template.qmd dentro de 'src' vai para output/src.
+ 
+# formatos globais. Em cada documento, defina no YAML format: pdf e/ou html/outro. 
+## vai herdar as definições feitas aqui, a menos que você mude alguma configuração em específico.
+format:
+  html:
+    embed-resources: true # para criar um arquivo self-contained.
+    toc: true
+    toc-depth: 3
+    number-sections: true
+  pdf:
+    # carrega pacotes LaTeX e outras definições para aproximar o padrão ABNT.
+    include-in-header: src/yaml/in-header.tex # se mudar o caminho do arquivo, tem que alterar aqui.
+
+# toc (table of contents)
+toc: true
+#toc-title: "Sumário" -> o nome da toc vai automático com a língua que você selecionar, mas pode especificar um nome também.
+toc-depth: 5 # limitando a seções quinárias (mas tenha dó do leitor, não faça isso!).
+lot: true # lista de tabelas
+lof: true # lista de siglas
+number-sections: true
+
+# font
+mainfont: "Times New Roman" # aceita qualquer fonte instalada no seu sistema.
+#fontfamily: mathptmx # se usar essa opção, tem que dar o nome de uma fonte LaTeX. mathpmx é a mais próxima da Times New Roman.
+fontsize: "12"
+linestretch: 1 # espaçamento
+
+# layout
+documentclass: scrartcl # classe de artigo do KOMA-script.
+papersize: a4
+margin-top: "3cm"
+margin-bottom: "2cm"
+margin-left: "3cm"
+margin-right: "2cm"
+cap-location: top # localização das legendas
+indent: true # adicionar recuo nos parágrafos
+
+# execution
+## opções para não mostrar código e mensagens, apenas os resultados (ex.: gráficos)
+execute: 
+  echo: false
+  message: false
+  warning: false
+  error: false
+  
+# figures
+fig-align: center
+fig-width: 5.5 # está em polegadas
+fig-format: svg # recomendado svg, cairo, png ou pdf
+fig-dpi: 300 # resolução da imagem. recomendo entre 300 e 700.
+
+# tables
+df-print: kable # formato padrão das tabelas geradas pelos blocos de código
+
+# references
+## caminho para os seus estilos de citação e bibliografia.
+## inseri alguns CSL: ipea (meu favorito), abnt, ufjf e ufmg_face. Mais em https://www.zotero.org/styles
+## usando Zotero: botão direito na sua coleção > Export Collection... Escolha um formato (recomendo Better CSL Json).
+### use "keep updated" e ele alegadamente vai atualizando seu arquivo. Salve na pasta do seu projeto, ex.: 
+### c://usuarios/eu/projetos/meu_projeto/src/yaml
+bibliography: src/yaml/References.json
+csl: src/yaml/ipea.csl
+
