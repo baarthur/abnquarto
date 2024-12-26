@@ -1,0 +1,55 @@
+#---- Instruções: 
+## edite os campos necessários e deixe os outros como estão.
+## dica: comente as linhas (# na frente), assim você pode ir testando e vendo o que quer manter.
+## estas configurações são globais, para todos os arquivos .qmd do projeto.
+## todas elas também podem ser feitas no YAML de cada documento. 
+### nesse caso, substituem a informação deste arquivo naquele documento.
+
+#--- Comentário sobre caminhos relativos:
+## todos os arquivos, como os da bibliografia, são diretórios relativos ao seu projeto. Não passe caminhos inteiros.
+## exemplo: se suas referências estão em c://usuarios/eu/projetos/meu_projeto/src/yaml, 
+### digite apenas a partir do projeto: src/yaml/arquivo.extensao, ou ainda ../src/yaml/arquivo.extensao
+
+title: ABNQuarto
+author: Arthur Bazolli
+version: 1.0.0
+lang: pt-BR
+quarto-required: ">=1.5.0"
+contributes:
+  formats:
+    common:
+      csl: csl/ipea.csl # Tem outras opções na pasta csl. 
+      execute: 
+        echo: false
+        message: false
+        warning: false
+        error: false
+      lang: pt-BR
+    pdf:
+      include-in-header: tex/in-header.tex # carrega pacotes LaTeX e outras definições para aproximar o padrão ABNT.
+      toc: true
+      #toc-title: "Sumário" -> o nome da toc vai automático com a língua que você selecionar, mas pode especificar um nome também.
+      toc-depth: 5 # limitando a seções quinárias (mas tenha dó do leitor, não faça isso!).
+      lot: true # lista de tabelas
+      lof: true # lista de siglas
+      number-sections: true
+      mainfont: "Times New Roman" # aceita qualquer fonte instalada no seu sistema.
+      #fontfamily: mathptmx # se usar essa opção, tem que dar o nome de uma fonte LaTeX. mathpmx é a mais próxima da Times New Roman.
+      fontsize: "12"
+      linestretch: 1 # espaçamento
+      documentclass: scrartcl # classe de artigo do KOMA-script.
+      papersize: a4
+      margin-top: "3cm"
+      margin-bottom: "2cm"
+      margin-left: "3cm"
+      margin-right: "2cm"
+      cap-location: top # localização das legendas
+      indent: true # adicionar recuo nos parágrafos
+      fig-align: center
+      fig-width: 5.5 # está em polegadas
+      fig-format: svg # recomendado svg, cairo, png ou pdf
+      fig-dpi: 300 # resolução da imagem. recomendo entre 300 e 700.
+      df-print: kable
+  
+
+

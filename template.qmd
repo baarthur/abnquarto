@@ -1,14 +1,10 @@
 ---
 title: "Template para Quarto em ABNT"
 date: today # ou especifique uma data
-author: "Seu nome"
-
-# vai herdar as configurações globais
-format: pdf
-
-# misc
-lang: pt-BR # siga o padrão: pt-BR, es-AR, en-US etc.
+author: "Arthur Bazolli"
+format: abnquarto-pdf # carrega extensão
 editor: source # alterne para editor: visual se preferir
+bibliography: references.json
 ---
 
 ```{r}
