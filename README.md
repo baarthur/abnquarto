@@ -1,4 +1,4 @@
-# abnquarto v0.1.0 (alpha)
+# abnquarto - v1.0.0
 
 Template para escrever em Quarto seguindo o mínimo de regras ABNT.
 
@@ -7,29 +7,16 @@ Template para escrever em Quarto seguindo o mínimo de regras ABNT.
 No futuro: criar um arquivo que reproduza 100% o padrão para monografias, dissertações e teses.
 ...
 
-
-
 ## Como baixar esse template
 
-### Alternativa 1
-Baixar tudo e inserir manualmente no seu computador: `<> Code` > `Download ZIP`
+Para instalar esse tema, utilize:
 
-### Alternativa 2
-Basta clonar este repositório, copiando o link acima.
-
-Pelo `Terminal` (do RStudio ou do seu computador):
 ```bash
-git clone https://github.com/baarthur/abnquarto.git nome_da_pasta
+quarto install extension baarthur/abnquarto
 ```
 
-> Dica: 
-> Garanta que você está na pasta certa usando o comando `pwd` (print work directory); caso contrário, digite cd e o caminho da pasta onde vai ficar o projeto.
+Para instalar a extensão quarto e copiar o template para o seu repositório:
 
-Isso vai criar uma pasta no diretório que você excolheu com os arquivos necessários. Os mais importantes são `_quarto.yml` (definições globais de margens, recuos, bibliografia etc) e tudo na pasta `src`, onde há um template e os arquivos necessários na subpasta `yaml`.
-
-
-
-## Uso básico
-
-1. Edite o arquivo `_quarto.yml` seguindo as instruções que estão lá.
-2. Use o template em `src` (ou crie um arquivo do zero onde quiser).
+```bash
+quarto use template baarthur/abnquarto
+```
